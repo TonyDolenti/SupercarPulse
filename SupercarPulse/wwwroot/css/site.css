@@ -1,18 +1,142 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+}
+
+.spaced-text {
+    letter-spacing: 2px;
+    color: white;
+}
+
+* {
+    font-family: 'Archivo', sans-serif;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 17px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+
+    color: gold;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+    color: red;
 }
 
 body {
-  margin-bottom: 60px;
+    background-image: url('imgs/homepage cars v2.jpg');
+    background-repeat: repeat;
+    background-position: center;
+    color: black;
+    margin-bottom: 60px;
+    background-color: black;
+    letter-spacing: 2px;
 }
+
+.btn-custom {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.table {
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.custom-card {
+    background-color: #333333;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.navbar{
+    color: red;
+}
+
+.table {
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    border-collapse: collapse; /* Remove borders between table cells */
+}
+
+    .table th,
+    .table td {
+        border: none; /* Remove individual cell borders */
+        padding: 8px; /* Adjust padding as needed */
+        text-align: center; /* Align text within cells */
+    }
+
+    /* Additional style to add space between table headers and data */
+    .table th {
+        padding-bottom: 40px; /* Increase padding between header and data */
+    }
+
+    /* Additional style to remove bottom border from last row */
+    .table tr:last-child td {
+        border-bottom: none;
+    }
+
+.viewcar {
+    border: 2px double white;
+    padding: 4px;
+}
+
+.view-car {
+    color: white;
+    font-size: 20px;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    border-collapse: separate; /* Remove borders between table cells */
+    border-spacing: 30px;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 10vh;
+    margin: 40px;
+}
+
+    .view-car th,
+    .view-car td {
+        border: none;
+        padding-left: 30px; /* Increase left padding */
+        padding-right: 20px;
+        text-align: center;
+    }
+ 
+.view-car th {
+    padding-bottom: 0px;
+}
+
+.index {
+    font-size: 24px; /* Current font-size */
+}
+
+/* Increase the spacing between specific table columns */
+.larger-table {
+    font-size: 24px; /* Adjust the font-size as desired */
+    padding: 20px; /* Adjust the padding around the table cells */
+}
+
+.updatebtn {
+    font-size: 40px;
+    font-weight: bolder;
+    color: dodgerblue;
+}
+
+.deletebtn {
+    font-size: 24px;
+    color: red;
+}
+
+.short-input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+}
+

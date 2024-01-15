@@ -1,0 +1,40 @@
+﻿@model SupercarPulse.Models.Car
+
+<h2>Update @Model.Make @Model.Model</h2>
+
+@using (Html.BeginForm("UpdateCarToDatabase", "Car", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input asp-for="Id" type="hidden" value="@Model.Id" />
+
+    <label asp-for="Make" class="control-label">Make</label>
+    <input type="text" name="Make" class="form-control short-input" value="@Model.Make" />
+   
+    <label asp-for="Model" class="control-label">Model</label>
+    <input type="text" name="Model" class="form-control short-input" value="@Model.Model" />
+
+    <label asp-for="Zero_To_Sixty" class="control-label">0-60 Time</label>
+    <input type="number" step="0.01" name="Zero_To_Sixty" class="form-control short-input" value="@Model.Zero_To_Sixty" />
+
+    <label asp-for="Engine_Type" class="control-label">Engine Type</label>
+    <input type="text" name="Engine_Type" class="form-control short-input" value="@Model.Engine_Type" />
+
+    <label asp-for="Horsepower" class="control-label">Horsepower</label>
+    <input type="number" name="Horsepower" class="form-control short-input" value="@Model.Horsepower" />
+
+    <label asp-for="Engine_Liter" class="control-label">Engine Liter</label>
+    <input type="number" step="0.1" name="Engine_Liter" class="form-control short-input" value="@Model.Engine_Liter" />
+
+    <label asp-for="ImageSrc" class="control-label">Image</label>
+    <input type="file" name="ImageSrcFile" class="form-control short-input" value="@Model.ImageSrc" />
+
+    <label asp-for="EngineImg" class="control-label">Engine Image</label>
+    <input type="file" name="EngineImgFile" class="form-control short-input" value="@Model.EngineImg" />
+
+    <label asp-for="CarLogo" class="control-label">Logo</label>
+    <input type="file" name="CarLogoFile" class="form-control short-input" value="@Model.CarLogo" />
+
+    <label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.1" name="Price" class="form-control short-input" value="@Model.Price" />
+
+    <input type="submit" value="Update Car" class="btn updatebtn" />
+}

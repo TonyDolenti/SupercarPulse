@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Car>
+
+@using (Html.BeginForm("Search", "Car", FormMethod.Get))
+{
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make</span>
+        </div>
+        @Html.TextBox("searchString", null, new { @class = "form-control", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-sm" })
+        <div class="input-group-append">
+            <input type="submit" value="Search" class="btn btn-custom" />
+        </div>
+    </div>
+}
+
+
+<h2 style="margin-bottom: 40px; margin-top: 40px; font-weight:600;">SuperCars</h2>
+
+<div style="display: block; margin-bottom: 40px;">
+    <a href="/Car/InsertCar/" style="font-size: 35px; font-weight: bolder; color: dodgerblue; text-decoration: none;">Add New Supercar</a>
+</div>
+
+<table class="index">
+    <tr>
+        <th>ID</th>
+        <th> </th>
+        <th>Emblem</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>0-60 Time</th>
+        <th class="larger-table">Engine</th>
+        <th class="larger-table">Horsepower</th>
+        <th>Engine Liter</th>
+        <th></th>
+    </tr>
+
+
+
+    @foreach (var car in @Model)
+    {
+        string imgSrc = "";
+                        if (car.ImageSrc != null)
+                        {
+                            var base64 = Convert.ToBase64String(car.ImageSrc);
+                            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        else
+                        {
+                            
+            imgSrc = "/imgs/Crap car.jpg";
+                        }
+
+        string logoSrc = "";
+        if (car.CarLogo != null)
+        {
+            var base64 = Convert.ToBase64String(car.CarLogo);
+            logoSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        else
+        {
+           
+            logoSrc = "/imgs/Crap car.jpg";
+        }
+        <tr>
+
+            <td>@car.Id</td>
+            <td><a href="/Car/ViewCar/@car.Id" style="font-size: 35px; color: dodgerblue; font-weight: bolder; text-decoration: none; display: inline-block;">More</a></td>
+            <td style="padding: 30px 20px 30px 30px"><img src="@logoSrc" width="100" /></td>
+            <td>@car.Make</td>
+            <td>@car.Model</td>
+            <td>@car.Zero_To_Sixty</td>
+            <td>@car.Engine_Type</td>
+            <td>@car.Horsepower</td>
+            <td>@car.Engine_Liter</td>
+            <td style="padding: 30px 20px 30px 30px"><img src="@imgSrc" class="viewcar"width="300" /></td>
+
+        </tr>
+        
+       
+    }
+
+</table>
+
+

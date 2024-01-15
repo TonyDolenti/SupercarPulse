@@ -1,0 +1,78 @@
+﻿@model Car
+
+<h3>@Model.Make @Model.Model Specs</h3>
+
+@{
+    string imgSrc = "";
+                        if (Model.ImageSrc != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.ImageSrc);
+                            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        else
+                        {
+            imgSrc = "/imgs/Crap car.jpg";
+                        }
+
+        string logoSrc = "";
+        if (Model.CarLogo != null)
+        {
+            var base64 = Convert.ToBase64String(Model.CarLogo);
+            logoSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        else
+        {
+            logoSrc = "/imgs/Crap car.jpg";
+        }
+    
+        string engineSrc = "";
+        if (Model.EngineImg != null)
+        {
+            var base64 = Convert.ToBase64String(Model.EngineImg);
+            engineSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        else
+        {
+            engineSrc = "/imgs/Crap car.jpg";
+        }
+}
+
+<img class="viewcar" src="@imgSrc" style="width: 100%; height: auto; padding: 30px 20px 30px 30px;" />
+
+<table class="view-car">
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>0-60 Time</th>
+        <th>Engine Type</th>
+        <th>Horsepower</th>
+        <th>Engine Liter</th>
+    </tr>
+
+
+    <tr>
+        <td>@Model.Make</td>
+        <td>@Model.Model</td>
+        <td>@Model.Zero_To_Sixty</td>
+        <td>@Model.Engine_Type</td>
+        <td>@Model.Horsepower</td>
+        <td>@Model.Engine_Liter</td>
+        
+    </tr>
+    
+</table>
+
+<img src="@engineSrc" class="viewcar" style="width: 50%; height: auto; padding: 30px 20px 30px 30px;" />
+
+<div style="display: block; margin-top: 40px;">
+    <a href="/Car/UpdateCar/@Model.Id" style="font-size: 40px; font-weight: bolder; color: dodgerblue; text-decoration: none;">Update this Car</a>
+</div>
+
+<div style="display: block; margin-top: 40px; margin-bottom: 40px;">
+
+    @using (Html.BeginForm("DeleteCar", "Car", "Post"))
+    {
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete Car" style="background-color: red; color: white; font-size: 24px; font-weight:bolder; padding: 10px 20px; border-radius: 20px;"   />
+    }
+</div>

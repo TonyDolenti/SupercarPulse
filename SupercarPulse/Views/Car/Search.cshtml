@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Car>
+
+@using (Html.BeginForm("Search", "Car", FormMethod.Get))
+{
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make</span>
+        </div>
+        @Html.TextBox("searchString", null, new { @class = "form-control", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-sm" })
+        <div class="input-group-append">
+            <input type="submit" value="Search" class="btn btn-custom" />
+        </div>
+    </div>
+}
+
+
+<h2 style="margin-bottom: 40px; margin-top: 40px; font-weight:600;">SuperCars</h2>
+
+@foreach (var car in @Model)
+{
+    string imgSrc = "";
+    if (car.ImageSrc != null)
+    {
+        var base64 = Convert.ToBase64String(car.ImageSrc);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+    else
+    {
+        imgSrc = "/imgs/Crap car.jpg";
+    }
+
+    string logoSrc = "";
+        if (car.CarLogo != null)
+        {
+            var base64 = Convert.ToBase64String(car.CarLogo);
+            logoSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        else
+        {
+            logoSrc = "/imgs/Crap car.jpg";
+        }
+
+    string engineSrc = "";
+    if (car.EngineImg != null)
+    {
+        var base64 = Convert.ToBase64String(car.EngineImg);
+        engineSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+    else
+    {
+        engineSrc = "/imgs/Crap car.jpg";
+    }
+
+
+
+    <div class="container d-flex justify-content-center">
+
+
+        <div class="card text-center custom-card mb-3" style="width: 65rem;">
+            <img src="@imgSrc" class="card-img-top" style="width: 100%; height: auto; padding: 30px 20px 30px 30px;">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="@logoSrc" style="width: 60%; height: auto;">
+                    </div>
+                    <div class="col-md-6 text-md-start">
+                        <h5 class="card-title" style="font-size: 2rem;">@car.Make @car.Model</h5>
+                        <p class="card-text">0-60 time: @car.Zero_To_Sixty seconds</p>
+                        <p class="card-text">Engine: @car.Engine_Type</p>
+                        <p class="card-text">HorsePower: @car.Horsepower</p>
+                        <p class="card-text">@car.Engine_Liter Liter</p>
+                        <p class="card-text">Price: $@car.Price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

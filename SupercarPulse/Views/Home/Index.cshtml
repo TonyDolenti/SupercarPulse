@@ -1,8 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    @using (Html.BeginForm("Search", "Car", FormMethod.Get))
+    {
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make</span>
+            </div>
+            @Html.TextBox("searchString", null, new { @class = "form-control", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-sm" })
+            <div class="input-group-append">
+                <input type="submit" value="Search" class="btn btn-custom" />
+            </div>
+        </div>
+    }
+
+}
