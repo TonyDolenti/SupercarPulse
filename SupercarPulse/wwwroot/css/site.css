@@ -62,22 +62,20 @@ body {
 .table {
     color: white;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-    border-collapse: collapse; /* Remove borders between table cells */
+    border-collapse: collapse;
 }
 
     .table th,
     .table td {
-        border: none; /* Remove individual cell borders */
-        padding: 8px; /* Adjust padding as needed */
-        text-align: center; /* Align text within cells */
+        border: none;
+        padding: 8px; 
+        text-align: center; 
     }
 
-    /* Additional style to add space between table headers and data */
     .table th {
-        padding-bottom: 40px; /* Increase padding between header and data */
+        padding-bottom: 40px;
     }
 
-    /* Additional style to remove bottom border from last row */
     .table tr:last-child td {
         border-bottom: none;
     }
@@ -91,11 +89,11 @@ body {
     color: white;
     font-size: 20px;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-    border-collapse: separate; /* Remove borders between table cells */
+    border-collapse: separate; 
     border-spacing: 30px;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     height: 10vh;
     margin: 40px;
 }
@@ -103,7 +101,7 @@ body {
     .view-car th,
     .view-car td {
         border: none;
-        padding-left: 30px; /* Increase left padding */
+        padding-left: 30px;
         padding-right: 20px;
         text-align: center;
     }
@@ -113,13 +111,13 @@ body {
 }
 
 .index {
-    font-size: 24px; /* Current font-size */
+    font-size: 24px; 
 }
 
-/* Increase the spacing between specific table columns */
+
 .larger-table {
-    font-size: 24px; /* Adjust the font-size as desired */
-    padding: 20px; /* Adjust the padding around the table cells */
+    font-size: 24px;
+    padding: 20px; 
 }
 
 .updatebtn {
@@ -139,4 +137,22 @@ body {
     margin-right: auto;
     padding: 7px;
 }
+
+.supercar-link {
+    display: inline-block;
+    font-size: 35px;
+    font-weight: bolder;
+    color: dodgerblue;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid white;
+    padding: 3px 7px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .supercar-link:hover {
+        background-color: #475665; /* Darker color for background */
+        color: white; /* Light text color on dark background */
+    }
 

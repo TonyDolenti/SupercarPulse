@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<Car>
 
+<link rel="stylesheet" type="text/css" href="site.css">
+
 @using (Html.BeginForm("Search", "Car", FormMethod.Get))
 {
     <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make</span>
+            <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make or Model</span>
         </div>
         @Html.TextBox("searchString", null, new { @class = "form-control", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-sm" })
         <div class="input-group-append">
@@ -17,12 +19,12 @@
 <h2 style="margin-bottom: 40px; margin-top: 40px; font-weight:600;">SuperCars</h2>
 
 <div style="display: block; margin-bottom: 40px;">
-    <a href="/Car/InsertCar/" style="font-size: 35px; font-weight: bolder; color: dodgerblue; text-decoration: none;">Add New Supercar</a>
+    <a href="/Car/InsertCar/" class="supercar-link">Add New Supercar</a>
 </div>
 
 <table class="index">
     <tr>
-        <th>ID</th>
+@*         <th>ID</th> *@
         <th> </th>
         <th>Emblem</th>
         <th>Make</th>
@@ -63,8 +65,8 @@
         }
         <tr>
 
-            <td>@car.Id</td>
-            <td><a href="/Car/ViewCar/@car.Id" style="font-size: 35px; color: dodgerblue; font-weight: bolder; text-decoration: none; display: inline-block;">More</a></td>
+@*             <td>@car.Id</td> *@
+            <td><a href="/Car/ViewCar/@car.Id" class="supercar-link" >More</a></td>
             <td style="padding: 30px 20px 30px 30px"><img src="@logoSrc" width="100" /></td>
             <td>@car.Make</td>
             <td>@car.Model</td>
