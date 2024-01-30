@@ -67,7 +67,7 @@ body {
 
     .table th,
     .table td {
-        border: none;
+        border: 1px solid white;
         padding: 8px; 
         text-align: center; 
     }
@@ -152,7 +152,61 @@ body {
 }
 
     .supercar-link:hover {
-        background-color: #475665; /* Darker color for background */
-        color: white; /* Light text color on dark background */
+        background-color: #475665;
+        color: white;
     }
 
+.search-container {
+    display: flex;
+    overflow: hidden;
+    border-radius: 15px; /* Rounded corners */
+    background-color: rgba(52, 58, 64, 0.0);
+    border: 1px solid #343a40;
+}
+
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 7px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+
+    .search-input:focus {
+        border-color: #343a40; /* Set the border color when in focus */
+        background-color: rgba(255, 255, 255, 0.0); /* Set the background color to transparent when in focus */
+        color: white; /* Set the text color when in focus */
+        outline: none; /* Remove the default focus outline (optional) */
+    }
+
+.search-btn {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+
+    .search-btn:hover {
+        background-color: #475665;
+    }
+
+/* Style the search button */
+.btn-custom {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Adjust the margin and padding for spacing */
+h2,
+a.supercar-link,
+.table {
+    margin-bottom: 20px;
+}
+
+/* Add some space around the images in the table */
+.index img {
+    margin: 10px;
+}

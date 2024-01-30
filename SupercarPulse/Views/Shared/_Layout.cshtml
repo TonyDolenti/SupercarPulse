@@ -34,14 +34,9 @@
 
             @using (Html.BeginForm("Search", "Car", FormMethod.Get))
             {
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Find by Make or Model</span>
-                    </div>
-                    @Html.TextBox("searchString", null, new { @class = "form-control", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-sm" })
-                    <div class="input-group-append">
-                        <input type="submit" value="Search" class="btn btn-custom" />
-                    </div>
+                <div class="search-container">
+                    <input type="text" name="searchString" class="search-input" placeholder="Find by Make or Model" />
+                    <button type="submit" class="search-btn">Search</button>
                 </div>
             }
 
